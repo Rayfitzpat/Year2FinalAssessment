@@ -5,8 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -511,7 +510,13 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jButton6.setText("Submit");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                try {
+                    jButton6ActionPerformed(evt);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -833,7 +838,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         }
 
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         if (evt.getSource() == jButton6) {
 //            ElectionStat el = new ElectionStat(line);
 
@@ -842,8 +847,65 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                     if(validationGui.validateHouseNumber(jTextField3.getText())){
                         if(validationGui.validateStringWithNumbers(jTextField4.getText())){
                             if(validationGui.validateID(jTextField8.getText())){
-                                String addNewRow = jTextField8.getText() + ", " + jTextField2.getText() + ", " + jTextField1.getText() + ", \"" + jTextField3.getText() + "," + jTextField4.getText() + ", Dublin " + jComboBox2.getSelectedItem() +"\"," +jComboBox3.getSelectedItem() + ", " + jComboBox4.getSelectedItem() + ",,,,,";
+                                String addNewRow ="\n" + jTextField8.getText() + ", " + jTextField2.getText() + ", " + jTextField1.getText() + ", \"" + jTextField3.getText() + "," + jTextField4.getText() + ", Dublin " + jComboBox2.getSelectedItem() +"\"," +jComboBox3.getSelectedItem() + ", " + jComboBox4.getSelectedItem() + ",,,,,";
                                 System.out.println(addNewRow);
+
+                                try{
+                                    String content = addNewRow;
+                                    //Specify the file name and path here
+                                    File file =new File("Data.csv");
+
+                                    /* This logic is to create the file if the
+                                     * file is not already present
+                                     */
+                                    if(!file.exists()){
+                                        file.createNewFile();
+                                    }
+
+                                    //Here true is to append the content to file
+                                    FileWriter fw = new FileWriter("Data.csv",true);
+                                    //BufferedWriter writer give better performance
+                                    BufferedWriter bw = new BufferedWriter(fw);
+                                    bw.write(content);
+                                    //Closing BufferedWriter Stream
+                                    bw.close();
+
+                                    System.out.println("Data successfully appended at the end of file");
+
+                                }catch(IOException ioe){
+                                    System.out.println("Exception occurred:");
+                                    ioe.printStackTrace();
+                                }
+
+
+//                                File targetFile = new File("../Data.csv");
+//                                BufferedReader targetBuf = new BufferedReader(new FileReader(targetFile));
+//                                File tempFile = new File("../Data1.csv");
+//                                PrintWriter printTemp = new PrintWriter("../Data.csv");
+//
+//                                printTemp.println(addNewRow);
+//
+////                                targetFile.delete();
+////                                tempFile.renameTo(targetFile);
+////                                String whereWrite = "../Data.csv";
+//
+//                                try {
+//                                    FileWriter fw = new FileWriter("../Data.csv", true);
+//                                    BufferedWriter bw = new BufferedWriter(fw);
+//                                    PrintWriter pw = new PrintWriter(bw);
+//
+//
+//
+//                                    pw.println(addNewRow);
+//                                    pw.flush();
+//                                    pw.close();
+//
+//                                } catch (FileNotFoundException e) {
+//                                    System.out.println(e.getMessage());
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+
                             }else {
                                 jTextField7.setText("Id must be a number and be between 1-999");
                             }
