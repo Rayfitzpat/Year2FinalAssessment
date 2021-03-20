@@ -695,7 +695,10 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
         UpdateFile.setBackground(new java.awt.Color(19, 28, 33));
 
-        jLabel14.setText("jLabel14");
+        jLabel14.setText("Your File has been sucessfully updated");
+        jLabel14.setFont(new java.awt.Font("sansserif", 0, 32));
+        jLabel14.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel14.setHorizontalAlignment((int) CENTER_ALIGNMENT);
 
         javax.swing.GroupLayout UpdateFileLayout = new javax.swing.GroupLayout(UpdateFile);
         UpdateFile.setLayout(UpdateFileLayout);
@@ -812,6 +815,45 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             DeletePanel.setVisible(false);
             UpdateFile.setVisible(true);
 
+            try {
+                File selectedFile = null;
+
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setCurrentDirectory(new File(".\\"));
+
+                int result = fileChooser.showOpenDialog(contentPane);
+
+                if (result == JFileChooser.APPROVE_OPTION)
+                {
+                    selectedFile = fileChooser.getSelectedFile();
+
+                }
+
+
+
+                Scanner readFile = new Scanner(selectedFile);
+
+                if (readFile.hasNextLine()) {
+                    readFile.nextLine(); //skip the headings
+                    readFile.nextLine();
+                }
+//            else System.out.println(" NOT reading file ");
+                while(readFile.hasNextLine())
+                {
+                    String line = readFile.nextLine();
+
+                    stats.add(new ElectionStat(line));
+                }
+//            readFile.close();
+            }
+            catch(FileNotFoundException e)
+            {
+                e.printStackTrace();
+
+            }
+
+//
+
         }
     }
 
@@ -847,7 +889,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                     if(validationGui.validateHouseNumber(jTextField3.getText())){
                         if(validationGui.validateStringWithNumbers(jTextField4.getText())){
                             if(validationGui.validateID(jTextField8.getText())){
-                                String addNewRow ="\n" + jTextField8.getText() + ", " + jTextField2.getText() + ", " + jTextField1.getText() + ", \"" + jTextField3.getText() + "," + jTextField4.getText() + ", Dublin " + jComboBox2.getSelectedItem() +"\"," +jComboBox3.getSelectedItem() + ", " + jComboBox4.getSelectedItem() + ",,,,,";
+                                String addNewRow ="\n" + jTextField8.getText() + "," + jTextField2.getText() + "," + jTextField1.getText() + ",\"" + jTextField3.getText() + " "  + jTextField4.getText() + ",Dublin " + jComboBox2.getSelectedItem() +"\"," +jComboBox3.getSelectedItem() + "," + jComboBox4.getSelectedItem() + ",,,,,";
                                 System.out.println(addNewRow);
 
                                 try{
