@@ -13,8 +13,8 @@ public class ElectionStat implements Comparable<ElectionStat> {
 
         try {
             Scanner sc = new Scanner(line);
-            while(sc.hasNextLine()) {
-                line = sc.nextLine();
+//            while(sc.hasNextLine()) {
+//                line = sc.nextLine();
 
                 Scanner sectionScanner = new Scanner(line);
                 sectionScanner.useDelimiter("\"");
@@ -29,13 +29,14 @@ public class ElectionStat implements Comparable<ElectionStat> {
 
 
                 id = nameDetailsParts[nameDetailsParts.length - 3];
-                firstName = nameDetailsParts[nameDetailsParts.length - 2];
-                surName = nameDetailsParts[nameDetailsParts.length - 1];
+                firstName = nameDetailsParts[nameDetailsParts.length - 1];
+                surName = nameDetailsParts[nameDetailsParts.length - 2];
+                address = addressFull;
 
                 area = partyDetailsParts[partyDetailsParts.length - 1];
                 party = partyDetailsParts[partyDetailsParts.length - 2];
 
-            }
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -92,14 +93,13 @@ public class ElectionStat implements Comparable<ElectionStat> {
 
     @Override
     public String toString() {
-        return "ElectionStat{" +
-                "id='" + id + '\'' +
-                ", surName='" + surName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", address='" + address + '\'' +
-                ", party='" + party + '\'' +
-                ", area='" + area + '\'' +
-                '}';
+        return
+                "ID: " +id + ", " +
+                firstName + ", " +
+                surName + ", " +
+                address + ", " +
+                party + ", " +
+                area + "\n" ;
     }
 
     @Override

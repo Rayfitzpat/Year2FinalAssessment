@@ -178,6 +178,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(19, 28, 33));
 
+
         jPanel2.setBackground(new java.awt.Color(19, 28, 33));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
@@ -292,7 +293,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jComboBox1.setEditable(true);
         jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
 
-         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City" }));
+         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -319,6 +320,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setForeground(new java.awt.Color(0, 153, 153));
         jTextArea1.setRows(5);
+        jTextArea1.setFont(new java.awt.Font("sansserif", 0, 26));
         jScrollPane8.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout DisplayAllPanelLayout = new javax.swing.GroupLayout(DisplayAllPanel);
@@ -838,7 +840,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                 for (ElectionStat el : stats) {
                     if (el.getArea().equals(area)) {
                         System.out.println("works");
-                        jTextArea1.setText(el.toString());
+                        jTextArea1.setText(jTextArea1.getText() + el.toString());
 
                     }else System.out.println("no worky");
 
