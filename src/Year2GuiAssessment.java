@@ -135,16 +135,16 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         TabbedPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         AddNewPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -177,7 +177,6 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(19, 28, 33));
-
 
         jPanel2.setBackground(new java.awt.Color(19, 28, 33));
 
@@ -360,81 +359,43 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(19, 28, 33));
         jTabbedPane1.setForeground(new java.awt.Color(0, 153, 153));
+        jTabbedPane1.setOpaque(true);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String [] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-        ));
-        jScrollPane3.setViewportView(jTable3);
+        jTextArea2.setBackground(new java.awt.Color(19, 28, 33));
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane1.setViewportView(jTextArea2);
 
-        jTabbedPane1.addTab("First Name", jScrollPane3);
+        jTabbedPane1.addTab("First Name", jScrollPane1);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String [] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-        ));
-        jScrollPane4.setViewportView(jTable4);
+        jTextArea3.setBackground(new java.awt.Color(19, 28, 33));
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane9.setViewportView(jTextArea3);
 
-        jTabbedPane1.addTab("Last Name", jScrollPane4);
+        jTabbedPane1.addTab("Last Name", jScrollPane9);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String [] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-        ));
-        jScrollPane5.setViewportView(jTable5);
+        jTextArea4.setBackground(new java.awt.Color(19, 28, 33));
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane10.setViewportView(jTextArea4);
 
-        jTabbedPane1.addTab("Address", jScrollPane5);
+        jTabbedPane1.addTab("Address", jScrollPane10);
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String [] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-        ));
-        jScrollPane6.setViewportView(jTable6);
+        jTextArea5.setBackground(new java.awt.Color(19, 28, 33));
+        jTextArea5.setColumns(20);
+        jTextArea5.setRows(5);
+        jScrollPane11.setViewportView(jTextArea5);
 
-        jTabbedPane1.addTab("Party", jScrollPane6);
+        jTabbedPane1.addTab("Party", jScrollPane11);
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String [] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-        ));
-        jScrollPane7.setViewportView(jTable7);
+        jTextArea6.setEditable(false);
+        jTextArea6.setBackground(new java.awt.Color(19, 28, 33));
+        jTextArea6.setColumns(20);
+        jTextArea6.setRows(5);
+        jScrollPane12.setViewportView(jTextArea6);
 
-        jTabbedPane1.addTab("Election Area", jScrollPane7);
+        jTabbedPane1.addTab("Electoral Area", jScrollPane12);
 
         jLabel2.setBackground(new java.awt.Color(19, 28, 33));
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -586,10 +547,10 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(40, 40, 40)
-                                                .addGroup(AddNewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(AddNewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(AddNewPanelLayout.createSequentialGroup()
                                                 .addGap(506, 506, 506)
                                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -936,21 +897,21 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
