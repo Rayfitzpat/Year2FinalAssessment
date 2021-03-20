@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
+import javax.print.DocFlavor;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -10,6 +16,12 @@
  */
 public class Year2GuiAssessment extends javax.swing.JFrame {
 
+    String line = "";
+    private ArrayList<ElectionStat> stats = new ArrayList<ElectionStat>();
+
+    private Container contentPane = this.getContentPane();
+
+//    private jComboBox<String> areaSelect = new jComboBox<String>();
     /**
      * Creates new form FinalAssessment
      */
@@ -17,6 +29,83 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
+        init();
+
+        try {
+            File selectedFile = null;
+
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File(".\\"));
+
+            int result = fileChooser.showOpenDialog(contentPane);
+
+            if (result == JFileChooser.APPROVE_OPTION)
+            {
+                selectedFile = fileChooser.getSelectedFile();
+
+            }
+
+
+
+            Scanner readFile = new Scanner(selectedFile);
+
+            if (readFile.hasNextLine()) {
+                readFile.nextLine(); //skip the headings
+                readFile.nextLine();
+            }
+//            else System.out.println(" NOT reading file ");
+            while(readFile.hasNextLine())
+            {
+                String line = readFile.nextLine();
+
+                stats.add(new ElectionStat(line));
+            }
+            System.out.println("hollah");
+//            readFile.close();
+        }
+        catch(FileNotFoundException e)
+        {
+            e.printStackTrace();
+
+        }
+
+
+
+    }
+    public void init()
+    {
+//        contentPane.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+//        JPanel selectionPanel = new JPanel();
+//        selectionPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+
+//        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
+//        jButton5.addActionListener(this::jButton5ActionPerformed);
+
+//
+//        selectionPanel.add(jComboBox1);
+//        selectionPanel.add(jButton5);
+
+
+        ArrayList<String> areaList = new ArrayList<String>();
+
+
+        for(ElectionStat el : stats)
+        {
+
+            String area = el.getArea();
+
+            if(!areaList.contains(area))
+            {
+                areaList.add(area);
+
+            }
+
+        }
+
+
+
     }
 
     /**
@@ -39,11 +128,11 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         CentrePanel = new javax.swing.JPanel();
         DisplayAllPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         TabbedPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -199,23 +288,11 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
         DisplayAllPanel.setBackground(new java.awt.Color(19, 28, 33));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String [] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         jComboBox1.setBackground(new java.awt.Color(19, 28, 33));
         jComboBox1.setEditable(true);
         jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City" }));
+
+         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -226,19 +303,28 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 153, 153));
         jButton5.setText("Submit");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
 
         jLabel3.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Please use the DropDown Menu to select an Electorial area and then press Submit");
 
+        jTextArea1.setBackground(new java.awt.Color(19, 28, 33));
+        jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(0, 153, 153));
+        jTextArea1.setRows(5);
+        jScrollPane8.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout DisplayAllPanelLayout = new javax.swing.GroupLayout(DisplayAllPanel);
         DisplayAllPanel.setLayout(DisplayAllPanelLayout);
         DisplayAllPanelLayout.setHorizontalGroup(
                 DisplayAllPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(DisplayAllPanelLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 20, Short.MAX_VALUE))
                         .addGroup(DisplayAllPanelLayout.createSequentialGroup()
                                 .addGroup(DisplayAllPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(DisplayAllPanelLayout.createSequentialGroup()
@@ -248,8 +334,9 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(DisplayAllPanelLayout.createSequentialGroup()
                                                 .addGap(76, 76, 76)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(34, Short.MAX_VALUE))
         );
         DisplayAllPanelLayout.setVerticalGroup(
                 DisplayAllPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,9 +347,9 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                 .addGroup(DisplayAllPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
-                                .addGap(28, 28, 28)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(33, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         CentrePanel.add(DisplayAllPanel, "card3");
@@ -742,6 +829,29 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         }
     }
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (evt.getSource() == jButton5){
+                System.out.println("hello world");
+            jTextArea1.setText(line);
+                String area = (String)jComboBox1.getSelectedItem();
+            System.out.println(area);
+                for (ElectionStat el : stats) {
+                    if (el.getArea().equals(area)) {
+                        System.out.println("works");
+                        jTextArea1.setText(el.toString());
+
+                    }else System.out.println("no worky");
+
+                }
+            }
+        else
+            {
+                jTextArea1.setText("ggjggjhgjhghjgjhghjgjhghjghjgjhghj");
+                jTextArea1.setBackground(Color.red);
+            }
+//        jTextArea1.setText("hjghjghjgjhgjhgjhgjhgjhjhgjhgjhgjhgjhgjhgjh");
+        }
+
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton7) {
 
@@ -824,21 +934,21 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
