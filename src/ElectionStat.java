@@ -95,7 +95,7 @@ public class ElectionStat implements Comparable<ElectionStat> {
     public String toString() {
         return
                 "ID: " +id + ", " +
-                firstName + ", " +
+                firstName + " " +
                 surName + ", " +
                 address + ", " +
                 party + ", " +

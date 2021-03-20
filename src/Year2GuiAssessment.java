@@ -60,7 +60,6 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
                 stats.add(new ElectionStat(line));
             }
-            System.out.println("hollah");
 //            readFile.close();
         }
         catch(FileNotFoundException e)
@@ -463,22 +462,22 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 153, 153));
         jLabel11.setText("Electorial Area");
 
-        jTextField1.setEditable(false);
+        jTextField1.setEditable(true);
         jTextField1.setBackground(new java.awt.Color(19, 28, 33));
         jTextField1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(0, 153, 153));
 
-        jTextField2.setEditable(false);
+        jTextField2.setEditable(true);
         jTextField2.setBackground(new java.awt.Color(19, 28, 33));
         jTextField2.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(0, 153, 153));
 
-        jTextField3.setEditable(false);
+        jTextField3.setEditable(true);
         jTextField3.setBackground(new java.awt.Color(19, 28, 33));
         jTextField3.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(0, 153, 153));
 
-        jTextField4.setEditable(false);
+        jTextField4.setEditable(true);
         jTextField4.setBackground(new java.awt.Color(19, 28, 33));
         jTextField4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(0, 153, 153));
@@ -505,6 +504,11 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(0, 153, 153));
         jButton6.setText("Submit");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jTextField7.setBackground(new java.awt.Color(19, 28, 33));
         jTextField7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -794,26 +798,35 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton5){
-                System.out.println("hello world");
+
             jTextArea1.setText(line);
                 String area = (String)jComboBox1.getSelectedItem();
-            System.out.println(area);
+//            System.out.println(area);
                 for (ElectionStat el : stats) {
                     if (el.getArea().equals(area)) {
-                        System.out.println("works");
+//                        System.out.println("works");
                         jTextArea1.setText(jTextArea1.getText() + el.toString());
 
-                    }else System.out.println("no worky");
+                    }
+//                    else System.out.println("Entry not found");
 
                 }
             }
         else
             {
-                jTextArea1.setText("ggjggjhgjhghjgjhghjgjhghjghjgjhghj");
                 jTextArea1.setBackground(Color.red);
             }
-//        jTextArea1.setText("hjghjghjgjhgjhgjhgjhgjhjhgjhgjhgjhgjhgjhgjh");
         }
+
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (evt.getSource() == jButton6) {
+            ElectionStat el = new ElectionStat(line);
+            String addNewRow = jTextField1.getText() + ", " + jTextField2.getText() + ", " + el.getFirstName() + "\"" + el.getAddress() + "\"," + el.getParty() + ", " + el.getArea();
+            System.out.println(addNewRow);
+        }
+    }
+
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton7) {
