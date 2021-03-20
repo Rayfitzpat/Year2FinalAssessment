@@ -46,11 +46,16 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         TabbedPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
-        jTabbedPane5 = new javax.swing.JTabbedPane();
-        jTabbedPane6 = new javax.swing.JTabbedPane();
-        jTabbedPane7 = new javax.swing.JTabbedPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable7 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         AddNewPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -266,11 +271,81 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(19, 28, 33));
         jTabbedPane1.setForeground(new java.awt.Color(0, 153, 153));
-        jTabbedPane1.addTab("First Name", jTabbedPane2);
-        jTabbedPane1.addTab("Last Name", jTabbedPane4);
-        jTabbedPane1.addTab("Address", jTabbedPane5);
-        jTabbedPane1.addTab("Party", jTabbedPane6);
-        jTabbedPane1.addTab("Constituancy", jTabbedPane7);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String [] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        jTabbedPane1.addTab("First Name", jScrollPane3);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String [] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        jTabbedPane1.addTab("Last Name", jScrollPane4);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String [] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        jTabbedPane1.addTab("Address", jScrollPane5);
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String [] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+        ));
+        jScrollPane6.setViewportView(jTable6);
+
+        jTabbedPane1.addTab("Party", jScrollPane6);
+
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String [] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
+        ));
+        jScrollPane7.setViewportView(jTable7);
+
+        jTabbedPane1.addTab("Election Area", jScrollPane7);
 
         jLabel2.setBackground(new java.awt.Color(19, 28, 33));
         jLabel2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -751,14 +826,19 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTabbedPane jTabbedPane5;
-    private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JTable jTable7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
