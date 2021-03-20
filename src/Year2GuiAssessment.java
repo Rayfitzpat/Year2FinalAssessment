@@ -21,6 +21,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
     private Container contentPane = this.getContentPane();
 
+    ValidationGui validationGui = new ValidationGui();
+
 //    private jComboBox<String> areaSelect = new jComboBox<String>();
     /**
      * Creates new form FinalAssessment
@@ -835,9 +837,29 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         if (evt.getSource() == jButton6) {
 //            ElectionStat el = new ElectionStat(line);
 
+            if(validationGui.validateString(jTextField1.getText())) {
+                if (validationGui.validateString(jTextField2.getText())) {
+                    if(validationGui.validateHouseNumber(jTextField3.getText())){
+                        if(validationGui.validateStringWithNumbers(jTextField4.getText())){
+                            if(validationGui.validateID(jTextField8.getText())){
+                                String addNewRow = jTextField8.getText() + ", " + jTextField2.getText() + ", " + jTextField1.getText() + ", \"" + jTextField3.getText() + "," + jTextField4.getText() + ", Dublin " + jComboBox2.getSelectedItem() +"\"," +jComboBox3.getSelectedItem() + ", " + jComboBox4.getSelectedItem() + ",,,,,";
+                                System.out.println(addNewRow);
+                            }else {
+                                jTextField7.setText("Id must be a number and be between 1-999");
+                            }
+                        }else {
+                            jTextField7.setText("address must be less than 30 characters long");
+                        }
+                    }else {
+                        jTextField7.setText("House Numbers can only contain numbers and must be between 1-999");
+                    }
+                } else {
+                    jTextField7.setText("Surname cannot contain numbers and must be less than 20 characters long");
 
-            String addNewRow = jTextField8.getText() + ", " + jTextField2.getText() + ", " + jTextField1.getText() + ", \"" + jTextField3.getText() + "," + jTextField4.getText() + ", Dublin " + jComboBox2.getSelectedItem() +"\"," +jComboBox3.getSelectedItem() + ", " + jComboBox4.getSelectedItem() + ",,,,,";
-            System.out.println(addNewRow);
+                }
+            }else{
+                jTextField7.setText("First name cannot contain numbers and must be less than 20 characters long");
+            }
         }
     }
 
