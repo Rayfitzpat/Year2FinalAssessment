@@ -522,7 +522,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel15.setText("Address");
+        jLabel15.setText("Candidate ID");
 
         jTextField8.setEditable(true);
         jTextField8.setBackground(new java.awt.Color(19, 28, 33));
@@ -833,8 +833,10 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton6) {
-            ElectionStat el = new ElectionStat(line);
-            String addNewRow = jTextField1.getText() + ", " + jTextField2.getText() + ", " + el.getFirstName() + "\"" + el.getAddress() + "\"," + el.getParty() + ", " + el.getArea();
+//            ElectionStat el = new ElectionStat(line);
+
+
+            String addNewRow = jTextField8.getText() + ", " + jTextField2.getText() + ", " + jTextField1.getText() + ", \"" + jTextField3.getText() + "," + jTextField4.getText() + ", Dublin " + jComboBox2.getSelectedItem() +"\"," +jComboBox3.getSelectedItem() + ", " + jComboBox4.getSelectedItem() + ",,,,,";
             System.out.println(addNewRow);
         }
     }
