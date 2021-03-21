@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -18,6 +19,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
     String line = "";
     private ArrayList<ElectionStat> stats = new ArrayList<ElectionStat>();
+
+//    private ArrayList<SortFirstName> stats = new ArrayList<SortFirstName>();
 
     private Container contentPane = this.getContentPane();
 
@@ -287,6 +290,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(19, 28, 33));
         jComboBox1.setEditable(true);
         jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
+        jComboBox1.setFont(new java.awt.Font("0",0,24));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Please Select", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City"}));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -369,6 +373,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea3.setBackground(new java.awt.Color(19, 28, 33));
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
+        jTextArea3.setFont((new java.awt.Font("0", 0, 24)));
+        jTextArea3.setForeground((new java.awt.Color(0,153,153)));
         jScrollPane9.setViewportView(jTextArea3);
 
         jTabbedPane1.addTab("Last Name", jScrollPane9);
@@ -376,6 +382,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea4.setBackground(new java.awt.Color(19, 28, 33));
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
+        jTextArea4.setFont((new java.awt.Font("0", 0, 24)));
+        jTextArea4.setForeground((new java.awt.Color(0,153,153)));
         jScrollPane10.setViewportView(jTextArea4);
 
         jTabbedPane1.addTab("Address", jScrollPane10);
@@ -383,6 +391,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea5.setBackground(new java.awt.Color(19, 28, 33));
         jTextArea5.setColumns(20);
         jTextArea5.setRows(5);
+        jTextArea5.setFont((new java.awt.Font("0", 0, 24)));
+        jTextArea5.setForeground((new java.awt.Color(0,153,153)));
         jScrollPane11.setViewportView(jTextArea5);
 
         jTabbedPane1.addTab("Party", jScrollPane11);
@@ -391,6 +401,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea6.setBackground(new java.awt.Color(19, 28, 33));
         jTextArea6.setColumns(20);
         jTextArea6.setRows(5);
+        jTextArea6.setFont((new java.awt.Font("0", 0, 24)));
+        jTextArea6.setForeground((new java.awt.Color(0,153,153)));
         jScrollPane12.setViewportView(jTextArea6);
 
         jTabbedPane1.addTab("Electoral Area", jScrollPane12);
@@ -519,7 +531,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextField7.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(255, 0, 0));
         jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField7.setText("Warning Message");
+        jTextField7.setText("");
         jTextField7.setBorder(null);
 
         jLabel15.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -639,10 +651,11 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextField6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(255, 0, 0));
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField6.setText("Warning Message");
+        jTextField6.setText("");
         jTextField6.setBorder(null);
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Select ID"}));
+        jComboBox5.setFont(new java.awt.Font("0",0,24));
 
         jTextArea7.setBackground(new java.awt.Color(19, 28, 33));
         jTextArea7.setColumns(20);
@@ -990,8 +1003,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                     bw.write(content);
                                     //Closing BufferedWriter Stream
                                     bw.close();
-
-                                    System.out.println("Data successfully appended at the end of file");
+                                    jTextField7.setForeground(new java.awt.Color(0, 153, 153));
+                                   jTextField7.setText("New Candidate Sucessfully added, please Update File to see changes");
 
                                 }catch(IOException ioe){
                                     System.out.println("Exception occurred:");
@@ -1028,19 +1041,24 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 //                                }
 
                             }else {
+                                jTextField7.setForeground(new java.awt.Color(255, 0, 0));
                                 jTextField7.setText("Id must be a number and be between 1-999");
                             }
                         }else {
+                            jTextField7.setForeground(new java.awt.Color(255, 0, 0));
                             jTextField7.setText("address must be less than 30 characters long");
                         }
                     }else {
+                        jTextField7.setForeground(new java.awt.Color(255, 0, 0));
                         jTextField7.setText("House Numbers can only contain numbers and must be between 1-999");
                     }
                 } else {
+                    jTextField7.setForeground(new java.awt.Color(255, 0, 0));
                     jTextField7.setText("Surname cannot contain numbers and must be less than 20 characters long");
 
                 }
             }else{
+                jTextField7.setForeground(new java.awt.Color(255, 0, 0));
                 jTextField7.setText("First name cannot contain numbers and must be less than 20 characters long");
             }
         }
@@ -1056,10 +1074,55 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             DeletePanel.setVisible(false);
             UpdateFile.setVisible(false);
             jTextArea2.setText("");
+            jTextArea3.setText("");
+            jTextArea4.setText("");
+            jTextArea5.setText("");
+            jTextArea6.setText("");
+
+//SortFirstName sortFirstName = new SortFirstName(line);
+//            ElectionStat el = new ElectionStat(line);
+            try {
+                Collections.sort(stats);
+                for (ElectionStat el : stats) {
+
+
+                    jTextArea2.setText(jTextArea2.getText() + el.toString());
+
+                }
+            }catch (Exception e){
+
+            }
+
+            try {
+                Collections.sort(stats, Collections.reverseOrder());
+                for (ElectionStat el : stats) {
+
+
+                    jTextArea3.setText(jTextArea3.getText() + el.toString());
+
+                }
+            }catch (Exception e){
+
+            }
+
             for (ElectionStat el : stats) {
 
 
-                jTextArea2.setText(jTextArea2.getText() + el.toString());
+                jTextArea4.setText(jTextArea4.getText() + el.toString());
+
+            }
+
+            for (ElectionStat el : stats) {
+
+
+                jTextArea5.setText(jTextArea5.getText() + el.toString());
+
+            }
+
+            for (ElectionStat el : stats) {
+
+
+                jTextArea6.setText(jTextArea6.getText() + el.toString());
 
             }
 
