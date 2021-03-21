@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ElectionStat implements Comparable<ElectionStat> {
+public class SortFirstName implements Comparable<SortFirstName> {
 
     private String id;
     private String surName;
@@ -9,38 +9,39 @@ public class ElectionStat implements Comparable<ElectionStat> {
     private String party;
     private String area;
 
-    public ElectionStat(String line) {
+    public SortFirstName(String line) {
 
         try {
             Scanner sc = new Scanner(line);
-//            while(sc.hasNextLine()) {
-//                line = sc.nextLine();
+            while (sc.hasNextLine()) {
+                line = sc.nextLine();
 
-            Scanner sectionScanner = new Scanner(line);
-            sectionScanner.useDelimiter("\"");
+                Scanner sectionScanner = new Scanner(line);
+                sectionScanner.useDelimiter("\"");
 
-            String nameDetails = sectionScanner.next();
-            String addressFull = sectionScanner.next();
-            String partyDetails = sectionScanner.next();
+                String nameDetails = sectionScanner.next();
+                String addressFull = sectionScanner.next();
+                String partyDetails = sectionScanner.next();
 
-            String[] nameDetailsParts = nameDetails.split(",");
-            String[] addressParts = addressFull.split(",");
-            String[] partyDetailsParts = partyDetails.split(",");
+                String[] nameDetailsParts = nameDetails.split(",");
+                String[] addressParts = addressFull.split(",");
+                String[] partyDetailsParts = partyDetails.split(",");
 
 
-            id = nameDetailsParts[nameDetailsParts.length - 3];
-            firstName = nameDetailsParts[nameDetailsParts.length - 1];
-            surName = nameDetailsParts[nameDetailsParts.length - 2];
-            address = addressFull;
+                id = nameDetailsParts[nameDetailsParts.length - 3];
+                firstName = nameDetailsParts[nameDetailsParts.length - 1];
+                surName = nameDetailsParts[nameDetailsParts.length - 2];
+                address = addressFull;
 
-            area = partyDetailsParts[partyDetailsParts.length - 1];
-            party = partyDetailsParts[partyDetailsParts.length - 2];
+                area = partyDetailsParts[partyDetailsParts.length - 1];
+                party = partyDetailsParts[partyDetailsParts.length - 2];
 
 //            }
+            }
         } catch (Exception e) {
             e.printStackTrace();
-        }
 
+        }
     }
 
     public String getId() {
@@ -103,8 +104,8 @@ public class ElectionStat implements Comparable<ElectionStat> {
     }
 
     @Override
-    public int compareTo(ElectionStat el) {
-        return this.firstName.compareTo(el.getFirstName());
+    public int compareTo(SortFirstName sn) {
+        return this.firstName.compareTo(sn.getFirstName());
     }
 }
 
