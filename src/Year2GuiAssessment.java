@@ -496,13 +496,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jButton6.setText("Submit");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    jButton6ActionPerformed(evt);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -827,7 +821,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             public static void deleteLine (String path, String deleteTerm,int position, String delimiter){
                 int pos = position - 1;
                 String temp = "temp.csv";
-                File oldFile = new File("Data.csv");
+                File oldFile = new File("DataProject.csv");
                 File newFile = new File(temp);
 
                 String currentLine;
@@ -875,7 +869,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton4) {
-
+            jTextArea1.setText("");
             DisplayAllPanel.setVisible(false);
             TabbedPanel.setVisible(false);
             AddNewPanel.setVisible(false);
@@ -948,7 +942,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         }
 
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt)  {
         if (evt.getSource() == jButton6) {
 //            ElectionStat el = new ElectionStat(line);
 
@@ -963,7 +957,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                 try{
                                     String content = addNewRow;
                                     //Specify the file name and path here
-                                    File file =new File("Data.csv");
+                                    File file =new File("DataProject.csv");
 
                                     /* This logic is to create the file if the
                                      * file is not already present
@@ -972,7 +966,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                         file.createNewFile();
                                     }
 
-                                    FileWriter fw = new FileWriter("Data.csv",true);
+                                    FileWriter fw = new FileWriter("DataProject.csv",true);
                                     //BufferedWriter writer give better performance
                                     BufferedWriter bw = new BufferedWriter(fw);
                                     bw.write(content);
@@ -1083,7 +1077,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton8) {
 
-           deleteLine("Data.csv", jComboBox5.getSelectedItem().toString(), 1, ",");
+           deleteLine("DataProject.csv", jComboBox5.getSelectedItem().toString(), 1, ",");
         }
     }
 
