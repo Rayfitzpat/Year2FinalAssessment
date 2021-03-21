@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -161,11 +162,11 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         DeletePanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jComboBox5 = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea7 = new javax.swing.JTextArea();
+        jButton8 = new javax.swing.JButton();
         UpdateFile = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
 
@@ -345,7 +346,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                         .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(30, Short.MAX_VALUE))
+                                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         CentrePanel.add(DisplayAllPanel, "card3");
@@ -359,6 +360,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea2.setBackground(new java.awt.Color(19, 28, 33));
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
+        jTextArea2.setFont((new java.awt.Font("0", 0, 24)));
+        jTextArea2.setForeground((new java.awt.Color(0,153,153)));
         jScrollPane1.setViewportView(jTextArea2);
 
         jTabbedPane1.addTab("First Name", jScrollPane1);
@@ -416,7 +419,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                 TabbedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TabbedPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
         );
@@ -602,14 +605,14 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                                 .addGroup(AddNewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(53, 53, 53)
-                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                                 .addGap(202, 202, 202))
         );
 
@@ -626,10 +629,10 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 153, 153));
         jLabel13.setText("Candidate ID");
 
-        jTextField5.setBackground(new java.awt.Color(19, 28, 33));
-        jTextField5.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(0, 153, 153));
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+//        jTextField5.setBackground(new java.awt.Color(19, 28, 33));
+//        jTextField5.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+//        jTextField5.setForeground(new java.awt.Color(0, 153, 153));
+//        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextField6.setEditable(false);
         jTextField6.setBackground(new java.awt.Color(19, 28, 33));
@@ -648,24 +651,33 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextArea7.setFont(new java.awt.Font("sansserif", 0, 24));
         jScrollPane3.setViewportView(jTextArea7);
 
+        jButton8.setBackground(new java.awt.Color(19, 28, 33));
+        jButton8.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(0, 153, 153));
+        jButton8.setText("Submit");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout DeletePanelLayout = new javax.swing.GroupLayout(DeletePanel);
         DeletePanel.setLayout(DeletePanelLayout);
         DeletePanelLayout.setHorizontalGroup(
                 DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(DeletePanelLayout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGap(0, 0, 0)
                                 .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE)
-                                        .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(DeletePanelLayout.createSequentialGroup()
-                                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(jTextField6)
-                                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE)))
-                                .addContainerGap(14, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane3)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DeletePanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(49, 49, 49)
+                                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1360, Short.MAX_VALUE))
+                                .addContainerGap(20, Short.MAX_VALUE))
         );
         DeletePanelLayout.setVerticalGroup(
                 DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -675,12 +687,11 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
-                                .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(32, 32, 32)
+                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -708,7 +719,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                         .addGroup(UpdateFileLayout.createSequentialGroup()
                                 .addGap(121, 121, 121)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(686, Short.MAX_VALUE))
+                                .addContainerGap(688, Short.MAX_VALUE))
         );
 
         CentrePanel.add(UpdateFile, "card6");
@@ -749,7 +760,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1242, Short.MAX_VALUE)
+                        .addGap(0, 1244, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
@@ -797,6 +808,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             DeletePanel.setVisible(true);
             UpdateFile.setVisible(false);
 
+            jTextArea7.setText(" ");
+
 //            ElectionStat el = new ElectionStat(line);
             ArrayList<String> list = new ArrayList<String>();
             for (ElectionStat el : stats) {
@@ -817,7 +830,6 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                 jTextArea7.setText(jTextArea7.getText() + el.toString());
 
             }
-            deleteLine("Data.csv", jComboBox5.getSelectedItem().toString(), 1, ",");
         }
     }
             public static void deleteLine (String path, String deleteTerm,int position, String delimiter){
@@ -924,6 +936,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     }
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTextArea1.setText("");
         if (evt.getSource() == jButton5){
 
             jTextArea1.setText(line);
@@ -1042,9 +1055,26 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             AddNewPanel.setVisible(false);
             DeletePanel.setVisible(false);
             UpdateFile.setVisible(false);
+            jTextArea2.setText("");
+            for (ElectionStat el : stats) {
+
+
+                jTextArea2.setText(jTextArea2.getText() + el.toString());
+
+            }
 
         }
     }
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (evt.getSource() == jButton8) {
+
+           deleteLine("Data.csv", jComboBox5.getSelectedItem().toString(), 1, ",");
+        }
+    }
+
+
+
 
     /**
      * @param args the command line arguments
@@ -1095,6 +1125,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1137,7 +1168,6 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
