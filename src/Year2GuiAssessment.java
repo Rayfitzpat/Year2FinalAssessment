@@ -23,6 +23,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     ValidationGui validationGui = new ValidationGui();
 
 //    private jComboBox<String> areaSelect = new jComboBox<String>();
+
     /**
      * Creates new form FinalAssessment
      */
@@ -40,12 +41,10 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
             int result = fileChooser.showOpenDialog(contentPane);
 
-            if (result == JFileChooser.APPROVE_OPTION)
-            {
+            if (result == JFileChooser.APPROVE_OPTION) {
                 selectedFile = fileChooser.getSelectedFile();
 
             }
-
 
 
             Scanner readFile = new Scanner(selectedFile);
@@ -55,25 +54,21 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                 readFile.nextLine();
             }
 //            else System.out.println(" NOT reading file ");
-            while(readFile.hasNextLine())
-            {
+            while (readFile.hasNextLine()) {
                 String line = readFile.nextLine();
 
                 stats.add(new ElectionStat(line));
             }
 //            readFile.close();
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
 
         }
 
 
-
     }
-    public void init()
-    {
+
+    public void init() {
 //        contentPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 
 //        JPanel selectionPanel = new JPanel();
@@ -91,19 +86,16 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         ArrayList<String> areaList = new ArrayList<String>();
 
 
-        for(ElectionStat el : stats)
-        {
+        for (ElectionStat el : stats) {
 
             String area = el.getArea();
 
-            if(!areaList.contains(area))
-            {
+            if (!areaList.contains(area)) {
                 areaList.add(area);
 
             }
 
         }
-
 
 
     }
@@ -295,7 +287,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jComboBox1.setEditable(true);
         jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
 
-         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Please Select", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Please Select", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City"}));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -490,19 +482,19 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jComboBox2.setEditable(true);
         jComboBox2.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "25", "25" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "25", "25"}));
 
         jComboBox3.setBackground(new java.awt.Color(19, 28, 33));
         jComboBox3.setEditable(true);
         jComboBox3.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fianna Fail", "Fine Gail", "Sinn Fein", "Labour Party", "Green Party", "People Before Profit", "Workers Party", "Non Party" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Fianna Fail", "Fine Gail", "Sinn Fein", "Labour Party", "Green Party", "People Before Profit", "Workers Party", "Non Party"}));
 
         jComboBox4.setBackground(new java.awt.Color(19, 28, 33));
         jComboBox4.setEditable(true);
         jComboBox4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jComboBox4.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City"}));
 
         jButton6.setBackground(new java.awt.Color(19, 28, 33));
         jButton6.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -647,11 +639,13 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jTextField6.setText("Warning Message");
         jTextField6.setBorder(null);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Select ID"}));
 
         jTextArea7.setBackground(new java.awt.Color(19, 28, 33));
         jTextArea7.setColumns(20);
         jTextArea7.setRows(5);
+        jTextArea7.setForeground(new java.awt.Color(0, 153, 153));
+        jTextArea7.setFont(new java.awt.Font("sansserif", 0, 24));
         jScrollPane3.setViewportView(jTextArea7);
 
         javax.swing.GroupLayout DeletePanelLayout = new javax.swing.GroupLayout(DeletePanel);
@@ -803,8 +797,80 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             DeletePanel.setVisible(true);
             UpdateFile.setVisible(false);
 
+//            ElectionStat el = new ElectionStat(line);
+            ArrayList<String> list = new ArrayList<String>();
+            for (ElectionStat el : stats) {
+
+                String id = el.getId();
+
+
+                if (!list.contains(id)) {
+                    list.add(id);
+                    jComboBox5.addItem(id);
+                }
+            }
+
+
+            for (ElectionStat el : stats) {
+
+//                jTextArea7.setText(line);
+                jTextArea7.setText(jTextArea7.getText() + el.toString());
+
+            }
+            deleteLine("Data.csv", jComboBox5.getSelectedItem().toString(), 1, ",");
         }
     }
+            public static void deleteLine (String path, String deleteTerm,int position, String delimiter){
+                int pos = position - 1;
+                String temp = "temp.csv";
+                File oldFile = new File("Data.csv");
+                File newFile = new File(temp);
+
+                String currentLine;
+                String data[];
+
+                try {
+
+                    FileWriter fw = new FileWriter(temp, true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter pw = new PrintWriter(bw);
+
+                    FileReader fr = new FileReader(path);
+                    BufferedReader br = new BufferedReader(fr);
+
+                    while ((currentLine = br.readLine()) != null) {
+                        data = currentLine.split(",");
+                        if (!(data[pos].equalsIgnoreCase(deleteTerm))) {
+                            pw.println(currentLine);
+                        }
+                    }
+
+                    pw.flush();
+                    pw.close();
+                    fr.close();
+                    br.close();
+                    bw.close();
+                    fw.close();
+
+                    oldFile.delete();
+                    File dump = new File(path);
+                    newFile.renameTo(dump);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+
+
+//                    else System.out.println("Entry not found");
+
+
+
+
+
+
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton4) {
