@@ -1,13 +1,10 @@
 
 
-import javax.print.DocFlavor;
+//Imports
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -15,28 +12,32 @@ import java.util.Scanner;
  *
  * @author Ray
  */
+
+
 public class Year2GuiAssessment extends javax.swing.JFrame {
 
     String line = "";
+    // Creates an array list call stats
     private ArrayList<ElectionStat> stats = new ArrayList<ElectionStat>();
 
-//    private ArrayList<SortFirstName> stats = new ArrayList<SortFirstName>();
+
 
     private Container contentPane = this.getContentPane();
 
     ValidationGui validationGui = new ValidationGui();
 
-//    private jComboBox<String> areaSelect = new jComboBox<String>();
 
     /**
      * Creates new form FinalAssessment
      */
     public Year2GuiAssessment() {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        setResizable(false);
-        init();
+        initComponents();  // calls InitComponents below
+        this.setLocationRelativeTo(null); // Makes window launch in the centre
+        setResizable(false); // Stops window from resizing
+        init(); //calls init
 
+
+        // This creates a window that gets the user to select the required csv file to import the data
         try {
             File selectedFile = null;
 
@@ -50,14 +51,15 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
             }
 
-
+// The scanner reads the selected file and adds the line to the Array list stats
             Scanner readFile = new Scanner(selectedFile);
 
             if (readFile.hasNextLine()) {
-                readFile.nextLine(); //skip the headings
+                readFile.nextLine(); //skips the headings
                 readFile.nextLine();
             }
-//            else System.out.println(" NOT reading file ");
+
+            // keeps reading the file while it has more lines
             while (readFile.hasNextLine()) {
                 String line = readFile.nextLine();
 
@@ -72,6 +74,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
     }
 
+    // searces through the arraylist for getArea and stores it in the string area
     public void init() {
 //
         ArrayList<String> areaList = new ArrayList<String>();
@@ -90,6 +93,9 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
     }
 
+
+    // Initialises all the components of the GUI
+    // These were auto generated from the design I made in Netbeans GUI Builder
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -271,6 +277,9 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
         jComboBox1.setFont(new java.awt.Font("0",0,24));
 
+        // Sets the Electoral Areas in the comboBox1 drop down menu
+        // These are hardcoded here to show how to do it but I have dynamically created the content in other combo boxes below
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Please Select", "Artane/Whitehall", "Ballyfermot/Drimnagh", "Ballymun/Finglas", "Cabra/Glasnevin", "Clontarf", "Crumlin/Kimmage", "Donaghmede", "North Inner City", "Pembroke/Rathmines", "South East Inner City", "South West Inner City"}));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,6 +427,9 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         CentrePanel.add(TabbedPanel, "card2");
 
         AddNewPanel.setBackground(new java.awt.Color(19, 28, 33));
+
+
+        // Various labels used in the panels and cards.  Setting font size, colour, alignment and text
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
@@ -761,6 +773,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
+    // Sets visability for the various panels depending on the button pressed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton1) {
 
@@ -785,6 +799,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
         }
     }
 
+    // ADD New Candidate functionality
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton3) {
 
@@ -796,7 +811,8 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
             jTextArea7.setText(" ");
 
-//            ElectionStat el = new ElectionStat(line);
+            // adds the list of ids dynamically to the combobox
+            // this is based on the ids directly taken from the CSV file
             ArrayList<String> list = new ArrayList<String>();
             for (ElectionStat el : stats) {
 
@@ -809,7 +825,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                 }
             }
 //
-//
+//   Prints the array to the Text area
             for (ElectionStat el : stats) {
 
 //                jTextArea7.setText(line);
@@ -818,6 +834,13 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             }
         }
     }
+
+    // This method takes the CSV file, searches through it for the line containing the chosen candidate id.
+    //  It then prints the entire file minus that chosen line to a new file called temp.csv
+    // finally it deletes the old csv file and renames the temp.csv to the old file name.
+
+    //  ********   This is not currently working as intended,  it is printing to the temp file without the line as required
+    // but it cannot delete the old CSV file or rename the new one as it seems that the old file is being called or used somewhere else in the program and I couldnt find it in time
             public static void deleteLine (String path, String deleteTerm,int position, String delimiter){
                 int pos = position - 1;
                 String temp = "temp.csv";
@@ -861,63 +884,68 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
                     e.printStackTrace();
 
                 }
-
-
             }
 
 
-
+// updates the data by asking the user to select the csv file again and thus reloading the new data
+    // Disposes of the old window and reloads the program
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton4) {
-            jTextArea1.setText("");
-            DisplayAllPanel.setVisible(false);
-            TabbedPanel.setVisible(false);
-            AddNewPanel.setVisible(false);
-            DeletePanel.setVisible(false);
-            UpdateFile.setVisible(true);
+            dispose();
+            new Year2GuiAssessment().setVisible(true);
 
-            try {
-                File selectedFile = null;
+            // This was causing duplication errors when I ran it as the contents of the old csv were interfeering with new one so I commented and went with the simple approach just above
 
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setCurrentDirectory(new File(".\\"));
-
-                int result = fileChooser.showOpenDialog(contentPane);
-
-                if (result == JFileChooser.APPROVE_OPTION)
-                {
-                    selectedFile = fileChooser.getSelectedFile();
-
-                }
-
-
-
-                Scanner readFile = new Scanner(selectedFile);
-
-                if (readFile.hasNextLine()) {
-                    readFile.nextLine(); //skip the headings
-                    readFile.nextLine();
-                }
-//            else System.out.println(" NOT reading file ");
-                while(readFile.hasNextLine())
-                {
-                    String line = readFile.nextLine();
-
-                    stats.add(new ElectionStat(line));
-                }
-            readFile.close();
-            }
-            catch(FileNotFoundException e)
-            {
-                e.printStackTrace();
-
-            }
-
+//            jTextArea1.setText("");
+//            DisplayAllPanel.setVisible(false);
+//            TabbedPanel.setVisible(false);
+//            AddNewPanel.setVisible(false);
+//            DeletePanel.setVisible(false);
+//            UpdateFile.setVisible(true);
 //
-
+//            try {
+//                File selectedFile = null;
+//
+//                JFileChooser fileChooser = new JFileChooser();
+//                fileChooser.setCurrentDirectory(new File(".\\"));
+//
+//                int result = fileChooser.showOpenDialog(contentPane);
+//
+//                if (result == JFileChooser.APPROVE_OPTION)
+//                {
+//                    selectedFile = fileChooser.getSelectedFile();
+//
+//                }
+//
+//
+//
+//                Scanner readFile = new Scanner(selectedFile);
+//
+//                if (readFile.hasNextLine()) {
+//                    readFile.nextLine(); //skip the headings
+//                    readFile.nextLine();
+//                }
+////            else System.out.println(" NOT reading file ");
+//                while(readFile.hasNextLine())
+//                {
+//                    String line = readFile.nextLine();
+//
+//                    stats.add(new ElectionStat(line));
+//                }
+//            readFile.close();
+//            }
+//            catch(FileNotFoundException e)
+//            {
+//                e.printStackTrace();
+//
+//            }
+//
+////
+//
         }
     }
 
+// displays the chosen Electoral area based on the selection made in the combo box
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
         jTextArea1.setText("");
         if (evt.getSource() == jButton5){
@@ -941,6 +969,9 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             }
         }
 
+
+        // Add new candidate
+    // validates every box individually and if they all pass then the csv file is appended with the new data
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt)  {
         if (evt.getSource() == jButton6) {
@@ -1010,6 +1041,10 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
     }
 
 
+    // Tabbed view
+    // This just displays the unsorted CSV file in all tabs,
+
+
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton7) {
 
@@ -1024,10 +1059,15 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
             jTextArea5.setText("");
             jTextArea6.setText("");
 
-//SortFirstName sortFirstName = new SortFirstName(line);
-//            ElectionStat el = new ElectionStat(line);
+
+           //  This should sort based on the switch statement in ElectionStat class but not curently working
+
             try {
 //                Collections.sort(stats);
+//                ArrayList<ElectionStat> tempList = (ArrayList<ElectionStat>) stats.clone();
+//                ElectionStat.sort = 2;
+//                Collections.sort(tempList);
+
                 for (ElectionStat el : stats) {
 
 
@@ -1073,6 +1113,7 @@ public class Year2GuiAssessment extends javax.swing.JFrame {
 
         }
     }
+// Calls the deleteLine method when button is pressed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {
         if (evt.getSource() == jButton8) {
